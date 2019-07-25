@@ -27,19 +27,30 @@ $('#input_ccy').on('change', refreshChart);
 
   function refreshChart() {
 
+    // Define chart area
     let canvas = document.getElementById('chart');
     let ctx = canvas.getContext('2d');
 
+    // Get dates and ccy from form
     let dateTo = $('#input_date_to').val();
     let dateFrom = $('#input_date_from').val();
     let ccy = $('#input_ccy').val();
 
+    // Make request to coindesk
     axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${dateFrom}&end=${dateTo}&currency=${ccy}`)
     .then((response) => {
 
+      // Parse response from coindesk
       let lables = Object.keys(response.data.bpi);
       let data = Object.values(response.data.bpi);
+      let minValue = Math.min(...data);
+      let maxValue = Math.max(...data);
 
+      // Update min and max values
+      $('#minValue').html(minValue);
+      $('#maxValue').html(maxValue);
+
+      // Create chart with data
       if (chart) {
         chart.destroy(); // Get rid of the old chart
       };
