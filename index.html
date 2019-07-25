@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fin Data Graphing</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  <script src="./moment.js"></script>
+  
+  <script src="./script.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+  <label>
+    From: <input id="input_date_from" type="date">
+  </label>
+
+  <label>
+    To: <input id="input_date_to" type="date">
+  </label>
+
+  <label>
+    Currency:
+      <select id="input_ccy">
+        <option value="usd">US Dollars</option>
+        <option value="eur">Euros</option>
+        <option value="gbp">Pound Sterling</option>
+      </select>
+  </label>
+  <canvas id="chart"></canvas>
+  
+
+</body>
+</html>
